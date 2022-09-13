@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CreateWallet from "./components/create-wallet";
+import {
+    BrowserRouter,
+    Routes, // instead of "Switch"
+    Route,
+} from "react-router-dom";
+import "sweetalert2/src/sweetalert2.scss";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<CreateWallet />} />
+                <Route path="*" exact={true} component={CreateWallet} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
